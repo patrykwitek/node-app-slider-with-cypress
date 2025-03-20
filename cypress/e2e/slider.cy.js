@@ -16,3 +16,16 @@ describe('Swiper Gallery Test', function () {
     cy.get('.swiper-slide-active').should('contain', 'Paris');
   });
 });
+
+describe('Swiper Gallery Test', function () {
+  // note: upewnij się, że użytkownik może przewijać slajdy w galerii za pomocą przycisków nawigacji
+  it('Checks if user can slide photos in gallery', function () {
+    cy.visit('http://localhost:3000');
+    cy.get('.swiper-button-next').click();
+    cy.wait(2000);
+    cy.get('.swiper-slide-active').should('contain', 'London');
+    cy.get('.swiper-button-prev').click();
+    cy.wait(2000);
+    cy.get('.swiper-slide-active').should('contain', 'Rome');
+  });
+});
